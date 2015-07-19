@@ -21,6 +21,7 @@
   src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(https://themes.googleusercontent.com/static/fonts/opensans/v6/MTP_ySUJH_bn48VBG8sNShsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
 }
 
+
 /* Blink Animation */
 
 @keyframes blink {
@@ -187,6 +188,7 @@ body.adminimal-menu #admin-menu #admin-menu-wrapper .dropdown li li.expandable:h
   background: url("images/square.png") no-repeat scroll 145px -83px #0074bd !important;
 }
 
+
 /* Shortcuts bar */
 
 body.adminimal-menu div.toolbar-shortcuts {
@@ -340,6 +342,7 @@ body.adminimal-menu.admin-menu.newline #overlay {
   padding-top: 30px !important;
 }
 
+
 /* Collapsed render mode */
 
 body.adminimal-menu.admin-menu.menu-render-collapsed div.shortcut-toolbar div#toolbar div.toolbar-shortcuts ul.menu {
@@ -367,6 +370,7 @@ body.adminimal-menu.admin-menu.menu-render-collapsed div.shortcut-toolbar div#to
   background: #202020;
 }
 
+
 /* Dropdown render mode */
 
 body.adminimal-menu.admin-menu.menu-render-dropdown .toolbar-shortcuts select#shortcut-menu {
@@ -391,6 +395,7 @@ body.adminimal-menu #admin-menu .dropdown .admin-menu-tab {
   background: #444;
   padding-bottom: 2px;
 }
+
 
 /* Environment indicator 2.x */
 
