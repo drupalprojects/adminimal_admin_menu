@@ -1,16 +1,19 @@
 /* Import the Open Sans webfont from Google CDN */
+
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 300;
   src: local('Open Sans Light'), local('OpenSans-Light'), url(https://themes.googleusercontent.com/static/fonts/opensans/v6/DXI1ORHCpsQm3Vp6mXoaTRsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
 }
+
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
   src: local('Open Sans'), local('OpenSans'), url(https://themes.googleusercontent.com/static/fonts/opensans/v6/uYKcPVoh6c5R0NpdEY5A-Q.woff) format('woff');
 }
+
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
@@ -19,40 +22,71 @@
 }
 
 /* Blink Animation */
+
 @keyframes blink {
-  0% {background-color: #f69231; color: #fff;}
-  50% {background-color: #d94f13; color: #fff;}
-  100% {background-color: #f69231; color: #fff;}
+  0% {
+    background-color: #f69231;
+    color: #fff;
+  }
+  50% {
+    background-color: #d94f13;
+    color: #fff;
+  }
+  100% {
+    background-color: #f69231;
+    color: #fff;
+  }
 }
 
 @-moz-keyframes blink {
-  0% {background-color: #f69231; color: #fff;}
-  50% {background-color: #d94f13; color: #fff;}
-  100% {background-color: #f69231; color: #fff;}
+  0% {
+    background-color: #f69231;
+    color: #fff;
+  }
+  50% {
+    background-color: #d94f13;
+    color: #fff;
+  }
+  100% {
+    background-color: #f69231;
+    color: #fff;
+  }
 }
 
 @-webkit-keyframes blink {
-  0% {background-color: #f69231; color: #fff;}
-  50% {background-color: #d94f13; color: #fff;}
-  100% {background-color: #f69231; color: #fff;}
+  0% {
+    background-color: #f69231;
+    color: #fff;
+  }
+  50% {
+    background-color: #d94f13;
+    color: #fff;
+  }
+  100% {
+    background-color: #f69231;
+    color: #fff;
+  }
 }
 
 @-o-keyframes blink {
-  0% {background-color: #f69231; color: #fff;}
-  50% {background-color: #d94f13; color: #fff;}
-  100% {background-color: #f69231; color: #fff;}
+  0% {
+    background-color: #f69231;
+    color: #fff;
+  }
+  50% {
+    background-color: #d94f13;
+    color: #fff;
+  }
+  100% {
+    background-color: #f69231;
+    color: #fff;
+  }
 }
 
 body.admin-menu.adminimal-menu #admin-menu *::-moz-focus-inner {
   border: 0;
 }
 
-/* Admin menu */
-
-/* Do NOT remove or modify the top margin line. The top margin must be EXACTLY 29 pixels for the "adminimal menu".
- * The !important is added because the "admin_menu" module adds it to its css. So if you remove the !important statement the top margin will be ignored
- * and it wont be displayed correctly. If you want to remove the top margin do it from the "admin_menu" module settings page.
- * Go to admin/config/administration/admin_menu and uncheck the "Adjust top margin".*/
 body.admin-menu.adminimal-menu {
   margin-top: 0px !important;
 }
@@ -152,6 +186,7 @@ body.adminimal-menu #admin-menu #admin-menu-wrapper .dropdown li li.expandable a
 body.adminimal-menu #admin-menu #admin-menu-wrapper .dropdown li li.expandable:hover {
   background: url("images/square.png") no-repeat scroll 145px -83px #0074bd !important;
 }
+
 /* Shortcuts bar */
 
 body.adminimal-menu div.toolbar-shortcuts {
@@ -186,7 +221,7 @@ body.adminimal-menu div.shortcut-toolbar div#toolbar a#edit-shortcuts:focus {
 }
 
 body.adminimal-menu #admin-menu .dropdown li ul {
-  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 body.adminimal-menu #admin-menu .dropdown li ul {
@@ -256,7 +291,9 @@ body.adminimal-menu #admin-menu .admin-menu-search input {
   height: 20px;
 }
 
-body.adminimal-menu #admin-menu .admin-menu-search input:focus, #admin-menu .admin-menu-search input:hover, #admin-menu .admin-menu-search input:active {
+body.adminimal-menu #admin-menu .admin-menu-search input:focus,
+#admin-menu .admin-menu-search input:hover,
+#admin-menu .admin-menu-search input:active {
   background: none no-repeat scroll right center #888;
   color: #eee;
 }
@@ -284,7 +321,9 @@ body.adminimal-menu #admin-menu li.highlight > li {
   -o-animation: blink 1s ease both infinite;
 }
 
+
 /* Newline render mode */
+
 body.adminimal-menu.admin-menu.menu-render-newline div#admin-menu div#admin-menu-wrapper div.shortcut-toolbar {
   clear: both;
   border-top: 1px solid #000;
@@ -294,11 +333,15 @@ body.adminimal-menu.admin-menu.menu-render-newline {
   margin-top: 56px !important;
 }
 
-body.adminimal-menu.admin-menu.menu-render-newline #overlay-container, body.adminimal-menu.admin-menu.newline .overlay-modal-background, body.adminimal-menu.admin-menu.newline .overlay-element, body.adminimal-menu.admin-menu.newline #overlay {
+body.adminimal-menu.admin-menu.menu-render-newline #overlay-container,
+body.adminimal-menu.admin-menu.newline .overlay-modal-background,
+body.adminimal-menu.admin-menu.newline .overlay-element,
+body.adminimal-menu.admin-menu.newline #overlay {
   padding-top: 30px !important;
 }
 
 /* Collapsed render mode */
+
 body.adminimal-menu.admin-menu.menu-render-collapsed div.shortcut-toolbar div#toolbar div.toolbar-shortcuts ul.menu {
   position: absolute;
 }
@@ -324,8 +367,8 @@ body.adminimal-menu.admin-menu.menu-render-collapsed div.shortcut-toolbar div#to
   background: #202020;
 }
 
-
 /* Dropdown render mode */
+
 body.adminimal-menu.admin-menu.menu-render-dropdown .toolbar-shortcuts select#shortcut-menu {
   -webkit-appearance: none;
   background: url("images/shortcut.png") no-repeat scroll 7px 7px #222222;
@@ -349,8 +392,8 @@ body.adminimal-menu #admin-menu .dropdown .admin-menu-tab {
   padding-bottom: 2px;
 }
 
-
 /* Environment indicator 2.x */
+
 body.adminimal-menu #admin-menu #environment-indicator {
   text-shadow: none;
 }
