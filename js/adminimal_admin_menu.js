@@ -57,7 +57,6 @@
 
   // Ovveride front link if changed by another module for the mobile menu.
   Drupal.admin.behaviors.mobile_front_link = function (context, settings, $adminMenu) {
-    console.log($("#admin-menu-icon > li > a"));
     $("ul.slicknav_nav li.admin-menu-toolbar-home-menu a>a").attr("href", $("#admin-menu-icon > li > a").attr('href'));
   };
 
