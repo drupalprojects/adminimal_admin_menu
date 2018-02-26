@@ -29,7 +29,7 @@
   Drupal.admin.behaviors.shorcutselect = function (context, settings, $adminMenu) {
 
     // Create the dropdown base
-    $('<select id="shortcut - menu"/>').appendTo("body.menu-render-dropdown #toolbar div.toolbar-shortcuts");
+    $('<select id="shortcut-menu"/>').appendTo("body.menu-render-dropdown #toolbar div.toolbar-shortcuts");
 
     // Create default option "Select"
     $("<option />", {

@@ -80,7 +80,7 @@ body.admin-menu.adminimal-menu #admin-menu *::-moz-focus-inner {
   border: 0;
 }
 body.admin-menu.adminimal-menu {
-  margin-top: 0px !important;
+  margin-top: 0 !important;
 }
 body.admin-menu.adminimal-menu:before {
   content: "";
