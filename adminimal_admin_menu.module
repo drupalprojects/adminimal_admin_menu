@@ -31,7 +31,7 @@ function adminimal_admin_menu_page_build(&$page) {
   }
   $path = drupal_get_path('module', 'adminimal_admin_menu');
   $load_slicknav = variable_get('adminimal_admin_menu_slicknav', TRUE);
-  $load_jQuery = variable_get('adminimal_admin_menu_jquery', TRUE);
+  $load_jquery = variable_get('adminimal_admin_menu_jquery', TRUE);
 
   // Attach the CSS and JavaScript assets.
   drupal_add_css($path . '/adminimal_admin_menu.css');
@@ -59,7 +59,7 @@ function adminimal_admin_menu_page_build(&$page) {
   }
 
   // Check if both slicknav and custom jQuery must be loaded.
-  if ($load_slicknav and $load_jQuery) {
+  if ($load_slicknav and $load_jquery) {
     drupal_add_js($path . '/js/jquery.min.js', array(
       'type' => 'file',
       'scope' => 'header',
@@ -72,7 +72,7 @@ function adminimal_admin_menu_page_build(&$page) {
     ));
     drupal_add_css($path . '/js/slicknav/slicknav.css');
   }
-  elseif ($load_slicknav and !$load_jQuery) {
+  elseif ($load_slicknav and !$load_jquery) {
     drupal_add_js($path . '/js/slicknav/jquery.slicknav.js', array(
       'type' => 'file',
       'scope' => 'header',
@@ -170,7 +170,7 @@ function adminimal_admin_menu_admin_menu_output_alter(&$content) {
 
   // Create the responsive menu.
   if (variable_get('adminimal_admin_menu_slicknav', TRUE)) {
-    // Prepare the responsive menu and Join the Icon menu with the administration menu.
+    // Join the Icon menu with the administration menu.
     $responsivemenu = array_merge($content['icon'], $content['menu']);
 
     // Give it ID to target it later with js and css.
@@ -222,11 +222,12 @@ function adminimal_admin_menu_preprocess_html(&$vars) {
   // Add the shortcut render mode class.
   $vars['classes_array'][] = 'menu-render-' . variable_get('adminimal_admin_menu_render', 'collapsed');
 
-  // Fix the viewport, correcting the mobile device zoom.
-  /**
+  /*
+   * Fix the viewport, correcting the mobile device zoom.
+   *
    * @todo Maybe remove this and let the theme manage the view point.
-   *  But i was suprised that only few "responsive" drupal themes were fixing
-   *  the viewport.
+   *   But i was suprised that only few "responsive" drupal themes were fixing
+   *   the viewport.
    */
   $viewport = array(
     '#tag' => 'meta',
@@ -242,7 +243,8 @@ function adminimal_admin_menu_preprocess_html(&$vars) {
 /**
  * Check if the user has access to use the admin menu.
  *
- * @return  boolean Result of access checks.
+ * @return boolean
+ *   Result of access checks.
  */
 function _adminimal_admin_menu_access() {
   if (!user_access('access administration menu') || admin_menu_suppress(FALSE)) {
