@@ -179,8 +179,10 @@ function adminimal_admin_menu_admin_menu_output_alter(&$content) {
     // Move the icon menu to the top.
     $responsivemenu['icon']['#weight'] = '-100';
 
-    // Change the link title to Administration.
-    $responsivemenu['admin/index']['#title'] = t('Administration');
+    // Change the link title for 'admin/index' to Administration if it exists.
+    if (!empty($responsivemenu['admin/index'])) {
+      $responsivemenu['admin/index']['#title'] = t('Administration');
+    }
 
     // Add the account menu, and push account and logout links toward bottom.
     $responsivemenu = array_merge($content['account'], $responsivemenu);
