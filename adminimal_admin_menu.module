@@ -243,7 +243,7 @@ function adminimal_admin_menu_preprocess_html(&$vars) {
 /**
  * Check if the user has access to use the admin menu.
  *
- * @return boolean
+ * @return bool
  *   Result of access checks.
  */
 function _adminimal_admin_menu_access() {

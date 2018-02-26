@@ -21,7 +21,7 @@
   margin: 0.188em 0 0 0.438em;
 }
 .slicknav_menu .slicknav_no-text {
-  margin: 0
+  margin: 0;
 }
 .slicknav_menu .slicknav_icon-bar {
   display: block;
@@ -35,14 +35,14 @@
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
 }
 .slicknav_btn .slicknav_icon-bar + .slicknav_icon-bar {
-  margin-top: 0.188em
+  margin-top: 0.188em;
 }
 .slicknav_nav {
-  clear: both
+  clear: both;
 }
 .slicknav_nav ul,
 .slicknav_nav li {
-  display: block
+  display: block;
 }
 .slicknav_nav .slicknav_arrow {
   font-size: 0.8em;
@@ -53,10 +53,10 @@
   cursor: pointer;
 }
 .slicknav_nav a {
-  display: block
+  display: block;
 }
 .slicknav_nav .slicknav_item a {
-  display: inline
+  display: inline;
 }
 .slicknav_menu:before,
 .slicknav_menu:after {
@@ -64,11 +64,11 @@
   display: table;
 }
 .slicknav_menu:after {
-  clear: both
+  clear: both;
 }
 /* IE6/7 support */
 .slicknav_menu {
-  *zoom: 1
+  *zoom: 1;
 }
 /*
     User Default Style
@@ -108,7 +108,8 @@
   padding: 0;
   font-size: 0.875em;
 }
-.slicknav_nav, .slicknav_nav ul {
+.slicknav_nav,
+.slicknav_nav ul {
   list-style: none;
   overflow: hidden;
 }
@@ -158,13 +159,19 @@
   body.admin-menu.adminimal-menu:before {
     display: none;
   }
-  #admin-menu-menu, a#edit-shortcuts, li.admin-menu-account, #admin-menu-search, #admin-menu-users {
+  #admin-menu-menu,
+  a#edit-shortcuts,
+  li.admin-menu-account,
+  #admin-menu-search,
+  #admin-menu-users {
     display: none;
   }
   #admin-menu {
     display: none !important;
   }
-  body.admin-menu, body.admin-menu.adminimal-menu.adminimal-backend, body.admin-menu.adminimal-menu.adminimal-frontend {
+  body.admin-menu,
+  body.admin-menu.adminimal-menu.adminimal-backend,
+  body.admin-menu.adminimal-menu.adminimal-frontend {
     margin-top: 0 !important;
   }
   .slicknav_menu {
@@ -191,7 +198,6 @@
     background: #fff;
     color: #333;
   }
-
 }
 .slicknav_btn {
   float: left;
@@ -202,7 +208,9 @@
   font-family: Open Sans, "Segoe UI", "Helvetica", sans-serif;
   color: #fff;
 }
-.slicknav_menu a, .slicknav_menu a:link, .slicknav_menu a:active {
+.slicknav_menu a,
+.slicknav_menu a:link,
+.slicknav_menu a:active {
   color: #fff !important;
   text-decoration: none !important;
 }
@@ -223,13 +231,13 @@
   text-shadow: none;
   font-weight: normal;
 }
-.slicknav_nav a:hover, .slicknav_nav .slicknav_item:hover {
+.slicknav_nav a:hover,
+.slicknav_nav .slicknav_item:hover {
   border-radius: 0;
 }
-.slicknav_nav li.expandable, #admin-menu .slicknav_nav .dropdown li {
+.slicknav_nav li.expandable,
+#admin-menu .slicknav_nav .dropdown li {
   float: none !important;
-}
-.slicknav_nav .slicknav_item {
 }
 .slicknav_btn {
   background: url("../../images/menu.svg") no-repeat scroll 8px 16px rgba(0, 0, 0, 0);
@@ -239,7 +247,8 @@
 .slicknav_menu:after {
   clear: both;
 }
-.slicknav_nav .slicknav_item:hover, .slicknav_nav a:hover {
+.slicknav_nav .slicknav_item:hover,
+.slicknav_nav a:hover {
   background: none repeat scroll 0 0 #0074bd;
   border-radius: 0;
   color: #fff;
