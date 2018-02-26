@@ -183,7 +183,7 @@ function adminimal_admin_menu_admin_menu_output_alter(&$content) {
     $responsivemenu['admin/index']['#title'] = t('Administration');
 
     // Add the account menu, and push account and logout links toward bottom.
-    $responsivemenu = array_merge($responsivemenu, $content['account']);
+    $responsivemenu = array_merge($content['account'], $responsivemenu);
     $responsivemenu['account']['#weight'] = 99;
     $responsivemenu['logout']['#weight'] = 100;
 
