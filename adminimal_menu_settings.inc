@@ -46,7 +46,7 @@ function adminimal_admin_menu_settings($form, &$form_state) {
 	  '#title' => t('Enable Responsive Menu.'),
 	  '#description' => t('<strong>Default value => Checked</strong>. 
 	  Enable this option if you want to have responsive menu and mobile device support. 
-	  While disabling this option could save you few kilobytes (around 3KB), i will completely disable the responsive menu functionality.'),
+	  While disabling this option could save you few kilobytes (around 3KB), it will completely disable the responsive menu functionality.'),
 	);
 
 	$form['advanced_settings']['adminimal_admin_menu_jquery'] = array(
