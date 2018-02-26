@@ -13,7 +13,7 @@ function adminimal_admin_menu_settings($form, &$form_state) {
   // Create the shortcut category.
   $form['shortcuts'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Shortcuts options'),
+    '#title' => t('Shortcut options'),
   );
 
   // Create the select list.
@@ -29,11 +29,11 @@ function adminimal_admin_menu_settings($form, &$form_state) {
       'dropdown' => t('Dropdown'),
       'exclusive' => t('Exclusive'),
     ),
-    '#description' => t('Select how the shortcuts will be rendered. There are currently 6 options: <ol> <li>Hidden -> The shortcuts will not be rendered inside the admin menu</li> <li>Inline -> The shortcuts will be rendered on the same line with the root menu links</li> <li>Collapsed -> The sorctus links will be collapsed like a normal menu. <strong>(Default option)</strong></li> <li>Newline -> The shortcuts will be rendered on a new line. Below the root menu links.</li> <li>Dropdown -> The shortcuts will be rendered inside a dropdown using the select html tag.</li> <li>Exclusive -> Only the shortcuts will be rendered, and the normal menu will be hidden.</li></ol>'),
+    '#description' => t('Select how shortcuts will be rendered: <ul> <li>Hidden: Shortcuts will not be rendered inside the admin menu.</li> <li>Inline: Shortcuts will be rendered on the same line with the root menu links.</li> <li>Collapsed: Shortcuts will be collapsed like a normal menu. <strong>(Default option)</strong></li> <li>Newline: Shortcuts will be rendered on a new line. Below the root menu links.</li> <li>Dropdown: Shortcuts will be rendered inside a dropdown using the select html tag.</li> <li>Exclusive: Only the shortcuts will be rendered; the normal menu will be hidden.</li></ul>'),
     '#required' => TRUE,
   );
 
-  // Create the shortcut category.
+  // Create the advanced settings category.
   $form['advanced_settings'] = array(
     '#type' => 'fieldset',
     '#title' => t('Advanced Settings'),
@@ -52,11 +52,11 @@ function adminimal_admin_menu_settings($form, &$form_state) {
 	$form['advanced_settings']['adminimal_admin_menu_jquery'] = array(
 	  '#type' => 'checkbox',
 	  '#default_value' => variable_get('adminimal_admin_menu_jquery', TRUE),
-	  '#title' => t('Load the requred jQuery 1.7 library automagically.'),
+	  '#title' => t('Load the required jQuery 1.7 library automagically.'),
 	  '#description' => t('<strong>Default value => Checked</strong>. This will load the newer jQuery version 1.7 using 
-	  the no-conflict method so it wont interfere with any existing jQuery or other java-script libraries. 
-	  The only reason to uncheck this if you are already using a newer version of jQuery site-wide and its globally accessible by the "$" variable. 
-	  Unchekig this option could save you 33KB, but it may also break your javasctipt if not used correctly.'),
+	  the no-conflict method so it won\'t interfere with any existing jQuery or other JavaScript libraries. 
+	  The only reason to un-check this if you are already using a newer version of jQuery site-wide and its globally accessible by the "$" variable. 
+	  Un-cheking this option could save you 33KB, but it may also break your JavaScript if not used correctly.'),
     '#states' => array(
       // Hide the settings when the cancel notify checkbox is disabled.
       'visible' => array(
@@ -65,8 +65,8 @@ function adminimal_admin_menu_settings($form, &$form_state) {
       'unchecked' => array(
        variable_get('adminimal_admin_menu_jquery', TRUE) => FALSE,
       ),
-     ),
-	);
+    ),
+  );
 
   // Create the submit button.
   $form['submit'] = array(
