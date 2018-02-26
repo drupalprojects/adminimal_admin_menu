@@ -40,30 +40,30 @@ function adminimal_admin_menu_settings($form, &$form_state) {
     '#description' => '<div class="messages warning">WARNING: Do not change any of the advanced setting unless you know what you are doing!</div>',
   );
 
-	$form['advanced_settings']['adminimal_admin_menu_slicknav'] = array(
-	  '#type' => 'checkbox',
-	  '#default_value' => variable_get('adminimal_admin_menu_slicknav', TRUE),
-	  '#title' => t('Enable Responsive Menu.'),
-	  '#description' => t('<strong>Default value => Checked</strong>. 
+  $form['advanced_settings']['adminimal_admin_menu_slicknav'] = array(
+    '#type' => 'checkbox',
+    '#default_value' => variable_get('adminimal_admin_menu_slicknav', TRUE),
+    '#title' => t('Enable Responsive Menu.'),
+    '#description' => t('<strong>Default value => Checked</strong>. 
 	  Enable this option if you want to have responsive menu and mobile device support. 
 	  While disabling this option could save you few kilobytes (around 3KB), it will completely disable the responsive menu functionality.'),
-	);
+  );
 
-	$form['advanced_settings']['adminimal_admin_menu_jquery'] = array(
-	  '#type' => 'checkbox',
-	  '#default_value' => variable_get('adminimal_admin_menu_jquery', TRUE),
-	  '#title' => t('Load the required jQuery 1.7 library automagically.'),
-	  '#description' => t('<strong>Default value => Checked</strong>. This will load the newer jQuery version 1.7 using 
+  $form['advanced_settings']['adminimal_admin_menu_jquery'] = array(
+    '#type' => 'checkbox',
+    '#default_value' => variable_get('adminimal_admin_menu_jquery', TRUE),
+    '#title' => t('Load the required jQuery 1.7 library automagically.'),
+    '#description' => t('<strong>Default value => Checked</strong>. This will load the newer jQuery version 1.7 using 
 	  the no-conflict method so it won\'t interfere with any existing jQuery or other JavaScript libraries. 
 	  The only reason to un-check this if you are already using a newer version of jQuery site-wide and its globally accessible by the "$" variable. 
 	  Un-cheking this option could save you 33KB, but it may also break your JavaScript if not used correctly.'),
     '#states' => array(
       // Hide the settings when the cancel notify checkbox is disabled.
       'visible' => array(
-       ':input[name="adminimal_admin_menu_slicknav"]' => array('checked' => TRUE),
+        ':input[name="adminimal_admin_menu_slicknav"]' => array('checked' => TRUE),
       ),
       'unchecked' => array(
-       variable_get('adminimal_admin_menu_jquery', TRUE) => FALSE,
+        variable_get('adminimal_admin_menu_jquery', TRUE) => FALSE,
       ),
     ),
   );

@@ -20,7 +20,6 @@ function adminimal_admin_menu_menu() {
   );
 
   return $items;
-
 }
 
 /**
@@ -39,10 +38,10 @@ function adminimal_admin_menu_page_build(&$page) {
 
   // Support for the Environment Indicator module.
   if (module_exists('environment_indicator')) {
-  $environment_info = environment_indicator_get_active();
+    $environment_info = environment_indicator_get_active();
     drupal_add_css('
       div.slicknav_menu a.slicknav_btn:after {
-        content: "' . $environment_info['name']. '";
+        content: "' . $environment_info['name'] . '";
         margin-left: 1em;
         color: ' . $environment_info['text_color'] . ';
         font-size: 12px;
@@ -61,16 +60,32 @@ function adminimal_admin_menu_page_build(&$page) {
 
   // Check if both slicknav and custom jQuery must be loaded.
   if ($load_slicknav and $load_jQuery) {
-    drupal_add_js($path . '/js/jquery.min.js', array( 'type' => 'file', 'scope' => 'header', 'weight' => 888 ));
-    drupal_add_js($path . '/js/slicknav/jquery-no-conflict.slicknav.js', array( 'type' => 'file', 'scope' => 'header', 'weight' => 888 ));
+    drupal_add_js($path . '/js/jquery.min.js', array(
+      'type' => 'file',
+      'scope' => 'header',
+      'weight' => 888,
+    ));
+    drupal_add_js($path . '/js/slicknav/jquery-no-conflict.slicknav.js', array(
+      'type' => 'file',
+      'scope' => 'header',
+      'weight' => 888,
+    ));
     drupal_add_css($path . '/js/slicknav/slicknav.css');
   }
   elseif ($load_slicknav and !$load_jQuery) {
-    drupal_add_js($path . '/js/slicknav/jquery.slicknav.js', array( 'type' => 'file', 'scope' => 'header', 'weight' => 888 ));
+    drupal_add_js($path . '/js/slicknav/jquery.slicknav.js', array(
+      'type' => 'file',
+      'scope' => 'header',
+      'weight' => 888,
+    ));
     drupal_add_css($path . '/js/slicknav/slicknav.css');
   }
 
-	drupal_add_js($path . '/js/adminimal_admin_menu.js', array( 'type' => 'file', 'scope' => 'header', 'weight' => 888 ));
+  drupal_add_js($path . '/js/adminimal_admin_menu.js', array(
+    'type' => 'file',
+    'scope' => 'header',
+    'weight' => 888,
+  ));
 
   if (!isset($page['page_bottom']['admin_menu'])) {
     return;
@@ -140,6 +155,7 @@ function adminimal_admin_menu_admin_menu_output_alter(&$content) {
   unset($content['icon']['icon']['#theme']);
   $content['icon']['icon']['#title'] = '<span class="admin-menu-home-icon">&nbsp;</span>';
   $content['icon']['icon']['#attributes']['class'][] = 'admin-menu-toolbar-home-menu';
+  // @todo Fix this CS-issue.
   $page['#attributes']['class'][] = 'adminimal-menu';
 
   // Hide the menu.
@@ -205,16 +221,17 @@ function adminimal_admin_menu_preprocess_html(&$vars) {
   $vars['classes_array'][] = 'menu-render-' . variable_get('adminimal_admin_menu_render', 'collapsed');
 
   // Fix the viewport, correcting the mobile device zoom.
-  /** @todo - Mybre remove this and let the theme manage the view pont.
+  /**
+   * @todo Maybe remove this and let the theme manage the view point.
    *  But i was suprised that only few "responsive" drupal themes were fixing
    *  the viewport.
    */
   $viewport = array(
-   '#tag' => 'meta',
-   '#attributes' => array(
-     'name' => 'viewport',
-     'content' => 'width=device-width, initial-scale=1, maximum-scale=1',
-   ),
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'name' => 'viewport',
+      'content' => 'width=device-width, initial-scale=1, maximum-scale=1',
+    ),
   );
   drupal_add_html_head($viewport, 'viewport');
 
@@ -222,6 +239,7 @@ function adminimal_admin_menu_preprocess_html(&$vars) {
 
 /**
  * Check if the user has access to use the admin menu.
+ *
  * @return  boolean Result of access checks.
  */
 function _adminimal_admin_menu_access() {
