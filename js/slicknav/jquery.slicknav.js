@@ -84,7 +84,7 @@
     var items = $this.mobileNav.find('li');
     $(items).each(function () {
       var item = $(this);
-      data = {};
+      var data = {};
       data.children = item.children('ul').attr('role', 'menu');
       item.data("menu", data);
 
