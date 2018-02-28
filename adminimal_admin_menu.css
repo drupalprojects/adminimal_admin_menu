@@ -277,8 +277,8 @@ body.adminimal-menu.admin-menu.menu-render-newline div#admin-menu div#admin-menu
   clear: both;
   border-top: 1px solid #000;
 }
-body.adminimal-menu.admin-menu.menu-render-newline {
-  margin-top: 56px !important;
+body.admin-menu.adminimal-menu.menu-render-newline:before {
+  height: 56px;
 }
 body.adminimal-menu.admin-menu.menu-render-newline #overlay-container,
 body.adminimal-menu.admin-menu.newline .overlay-modal-background,
