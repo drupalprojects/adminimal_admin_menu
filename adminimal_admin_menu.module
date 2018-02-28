@@ -251,22 +251,27 @@ function adminimal_admin_menu_preprocess_html(&$vars) {
   // Add the shortcut render mode class.
   $vars['classes_array'][] = 'menu-render-' . variable_get('adminimal_admin_menu_render', 'collapsed');
 
-  /*
-   * Fix the viewport, correcting the mobile device zoom.
-   *
-   * @todo Maybe remove this and let the theme manage the view point.
-   *   But i was suprised that only few "responsive" drupal themes were fixing
-   *   the viewport.
-   */
-  $viewport = array(
-    '#tag' => 'meta',
-    '#attributes' => array(
-      'name' => 'viewport',
-      'content' => 'width=device-width, initial-scale=1, maximum-scale=1',
-    ),
-  );
-  drupal_add_html_head($viewport, 'viewport');
+  _adminimal_admin_menu_viewport();
+}
 
+/**
+ * Add viewport for scaling on devices.
+ */
+function _adminimal_admin_menu_viewport() {
+  $use_slicknav = variable_get('adminimal_admin_menu_slicknav', TRUE);
+  $use_viewport = variable_get('adminimal_admin_menu_viewport', TRUE);
+
+  // Only needed for slicknav.
+  if ($use_slicknav && $use_viewport) {
+    $viewport = array(
+      '#tag' => 'meta',
+      '#attributes' => array(
+        'name' => 'viewport',
+        'content' => 'width=device-width, initial-scale=1',
+      ),
+    );
+    drupal_add_html_head($viewport, 'viewport');
+  }
 }
 
 /**
