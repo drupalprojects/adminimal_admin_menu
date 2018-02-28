@@ -71,8 +71,18 @@ function adminimal_admin_menu_settings($form, &$form_state) {
       'visible' => array(
         ':input[name="adminimal_admin_menu_slicknav"]' => array('checked' => TRUE),
       ),
-      'unchecked' => array(
-        variable_get('adminimal_admin_menu_jquery', TRUE) => FALSE,
+    ),
+  );
+
+  $form['advanced_settings']['adminimal_admin_menu_viewport'] = array(
+    '#type' => 'checkbox',
+    '#default_value' => variable_get('adminimal_admin_menu_viewport', TRUE),
+    '#title' => t('Set the metatag viewport <em>\'width=device-width, initial-scale=1\'</em> for devices.'),
+    '#description' => t('This is needed for the responsive menu, if no other theme or module sets the viewport.'),
+    '#states' => array(
+      // Hide the settings when the cancel notify checkbox is disabled.
+      'visible' => array(
+        ':input[name="adminimal_admin_menu_slicknav"]' => array('checked' => TRUE),
       ),
     ),
   );
