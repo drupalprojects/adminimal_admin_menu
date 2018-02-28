@@ -10,13 +10,14 @@
  */
 function adminimal_admin_menu_menu() {
   $items = array();
+
   $items['admin/config/administration/adminimal_menu'] = array(
     'title' => 'Adminimal menu',
     'description' => 'Adjust adminimal menu settings.',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('adminimal_admin_menu_settings'),
     'access arguments' => array('administer site configuration'),
-    'file' => 'adminimal_menu_settings.inc',
+    'file' => 'adminimal_admin_menu.admin.inc',
   );
 
   return $items;
@@ -90,8 +91,7 @@ function adminimal_admin_menu_page_build(&$page) {
   $attached = &$page['page_bottom']['admin_menu']['#attached'];
   $options = array('every_page' => TRUE);
 
-  // @todo Stop-gap fix until cached rendering is resolved.
-  // @see http://drupal.org/node/1567622
+  // @todo Stop-gap fix until cached rendering is resolved (http://drupal.org/node/1567622).
   if (module_exists('shortcut')) {
     $attached['css'][drupal_get_path('module', 'shortcut') . '/shortcut.css'] = $options;
   }
@@ -151,7 +151,8 @@ function _adminimal_admin_menu_support_environment_indicator() {
  */
 function adminimal_admin_menu_admin_menu_output_build(&$content) {
 
-  if (variable_get('adminimal_admin_menu_render', 'collapsed') != 'hidden') {
+  // Shortcut menu.
+  if (module_exists('shortcut') && variable_get('adminimal_admin_menu_render', 'collapsed') != 'hidden') {
     // Add shortcuts bar.
     $content['shortcut'] = array(
       '#access' => module_exists('shortcut'),
@@ -168,7 +169,6 @@ function adminimal_admin_menu_admin_menu_output_build(&$content) {
       '#pre_render' => array('shortcut_toolbar_pre_render'),
     );
   }
-
 }
 
 /**
@@ -188,7 +188,7 @@ function adminimal_admin_menu_admin_menu_output_alter(&$content) {
   $page['#attributes']['class'][] = 'adminimal-menu';
 
   // Hide the menu.
-  if (variable_get('adminimal_admin_menu_render', 'collapsed') == 'exclusive') {
+  if (module_exists('shortcut') && variable_get('adminimal_admin_menu_render', 'collapsed') == 'exclusive') {
     unset($content['icon']['icon']);
     unset($content['search']);
     foreach ($content['menu'] as $key => $link) {
@@ -222,11 +222,13 @@ function adminimal_admin_menu_admin_menu_output_alter(&$content) {
     $content['responsive-menu'] = $responsivemenu;
 
     // Create the responsive shortucts.
-    $content['responsive']['shortcuts'] = array(
-      '#prefix' => '<div id="admin-menu-shortcuts-responsive">',
-      '#suffix' => '</div>',
-      '#pre_render' => array('shortcut_toolbar_pre_render'),
-    );
+    if (module_exists('shortcut')) {
+      $content['responsive']['shortcuts'] = array(
+        '#prefix' => '<div id="admin-menu-shortcuts-responsive">',
+        '#suffix' => '</div>',
+        '#pre_render' => array('shortcut_toolbar_pre_render'),
+      );
+    }
   }
 }
 
@@ -237,6 +239,7 @@ function adminimal_admin_menu_preprocess_html(&$vars) {
   if (!_adminimal_admin_menu_access()) {
     return;
   }
+
   // Add the "adminimal" class to the body for better css selection.
   $vars['classes_array'][] = 'adminimal-menu';
 
@@ -249,7 +252,9 @@ function adminimal_admin_menu_preprocess_html(&$vars) {
   }
 
   // Add the shortcut render mode class.
-  $vars['classes_array'][] = 'menu-render-' . variable_get('adminimal_admin_menu_render', 'collapsed');
+  if (module_exists('shortcut')) {
+    $vars['classes_array'][] = 'menu-render-' . variable_get('adminimal_admin_menu_render', 'collapsed');
+  }
 
   _adminimal_admin_menu_viewport();
 }
