@@ -23,6 +23,23 @@ function adminimal_admin_menu_menu() {
 }
 
 /**
+ * Implements hook_module_implements_alter().
+ */
+function adminimal_admin_menu_module_implements_alter(&$implementations, $hook) {
+  // Put Adminimal Admin Menu's implementation of hook_admin_menu_output_alter()
+  // to the end of the list of implementors, assuring that it will be executed
+  // at the very end. Other modules may manipulate the menu items in the
+  // administration menu (i.e. the excellent Administration Menu Source) and we
+  // need to make sure those changes are preserved and respected by the output
+  // of Adminimal Admin Menu.
+  if ($hook == 'admin_menu_output_alter') {
+    $group = $implementations['adminimal_admin_menu'];
+    unset($implementations['adminimal_admin_menu']);
+    $implementations['adminimal_admin_menu'] = $group;
+  }
+}
+
+/**
  * Implements hook_page_build().
  */
 function adminimal_admin_menu_page_build(&$page) {
